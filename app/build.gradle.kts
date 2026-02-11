@@ -68,4 +68,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.lottie)
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }

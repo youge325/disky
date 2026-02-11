@@ -1,7 +1,6 @@
 package de.felixnuesse.disky.scanner
 
-import android.util.Log
-import de.felixnuesse.disky.extensions.tag
+import android.net.Uri
 import de.felixnuesse.disky.model.StorageBranch
 import de.felixnuesse.disky.model.StorageLeaf
 import de.felixnuesse.disky.model.StoragePrototype
@@ -33,6 +32,7 @@ class FsScanner(var callback: ScannerCallback?) {
             }
             if(it.isFile){
                 val fe = StorageLeaf(it.name, StorageType.FILE, it.length())
+                fe.uri = Uri.fromFile(it).toString()
                 fe.parent=folder
                 folder.addChildren(fe)
                 callback?.foundLeaf(fe.getCalculatedSize())

@@ -3,13 +3,13 @@ package de.felixnuesse.disky.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 @Serializable
 sealed class StoragePrototype(var name: String, var storageType: StorageType = StorageType.GENERIC) {
 
     var scanDate = System.currentTimeMillis()
+    var uri: String = ""
     @Transient var parent: StoragePrototype? = null
     private var children: ArrayList<StoragePrototype> = arrayListOf()
 
